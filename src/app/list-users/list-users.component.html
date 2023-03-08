@@ -1,0 +1,134 @@
+
+<!-- <mat-card   >
+  <div fxLayout="Column" fxLayoutAlign=" none" fxLayoutGap="200px"fxLayoutAlign="space-around none" >
+  <form  >
+
+       <mat-form-field  >
+         <mat-label>search</mat-label>
+         <input matInput type="text" class="search" (keyup)="applyFilter($event)">
+         <mat-icon matSuffix>search</mat-icon>
+
+       </mat-form-field>
+
+
+
+
+    <mat-form-field class="example-full-width" appearance="outline"   style="margin-left: 75%;"   >
+      <mat-icon matSuffix>search</mat-icon>
+      <mat-label>search departement</mat-label>
+      <input type="text" (keyup)="applyFilter($event)"
+             placeholder="Pick one"
+             aria-label="search"
+             matInput
+             [formControl]="myControl"
+             [matAutocomplete]="auto">
+      <mat-autocomplete #auto="matAutocomplete">
+        <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+          {{option}}
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
+  </form>
+
+
+  </div>
+
+
+
+
+
+
+
+</mat-card> -->
+
+<mat-card  >
+  <div fxLayout="Column" fxLayoutAlign=" none" fxLayoutGap="200px"fxLayoutAlign="space-around none" >
+
+
+
+  <button mat-raised-button color="primary" class="add" (click)="openDialog()" >Add User</button>
+
+
+
+
+<mat-form-field appearance="outline" style=" width: 430px; padding: 15px;margin-left: 800px;margin-top: 20px;" >
+  <mat-label>Filter</mat-label>
+  <input matInput (keyup)="applyFilter($event)" placeholder="Ex. ium" #input >
+  <mat-icon matSuffix    >search</mat-icon>
+
+</mat-form-field>
+
+
+
+
+
+
+
+</div>
+ <table mat-table   [dataSource]="dataSource" style="width: 80%; padding: 25px;margin-left: 150px;margin-top: 20px;"  class="mat-elevation-z8">
+
+
+
+      <!-- Position Column -->
+      <ng-container matColumnDef="ID" layout-margin>
+        <th mat-header-cell *matHeaderCellDef> ID </th>
+        <td mat-cell *matCellDef="let element"> {{element.ID}} </td>
+      </ng-container>
+
+   <!-- Name Column -->
+   <ng-container matColumnDef="name">
+     <th mat-header-cell *matHeaderCellDef> Name </th>
+     <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+   </ng-container>
+   <!-- Symbol Column -->
+
+   <!-- Weight Column -->
+   <ng-container matColumnDef="prenome">
+     <th mat-header-cell *matHeaderCellDef> Prenom </th>
+     <td mat-cell *matCellDef="let element"> {{element.prenome}} </td>
+   </ng-container>
+              <!-- Symbol Column -->
+              <ng-container matColumnDef="dateNaissance">
+                <th mat-header-cell *matHeaderCellDef> Date De Naissance </th>
+                <td mat-cell *matCellDef="let element"> {{element.dateNaissance}} </td>
+              </ng-container>
+
+   <ng-container matColumnDef="age">
+     <th mat-header-cell *matHeaderCellDef> Age </th>
+     <td mat-cell *matCellDef="let element"> {{element.age}} </td>
+   </ng-container>
+
+      <!-- Symbol Column -->
+      <ng-container matColumnDef="departement">
+       <th mat-header-cell *matHeaderCellDef> Departement </th>
+       <td mat-cell *matCellDef="let element"> {{element.departement}} </td>
+     </ng-container>
+     <ng-container matColumnDef="action">
+       <th mat-header-cell *matHeaderCellDef> Action </th>
+       <td mat-cell *matCellDef="let element">
+
+
+
+
+
+
+          <div class="example-button-container" >
+            <button mat-icon-button color="primary" (click)="openUpDialog(element)"aria-label="Example icon button with a heart icon">
+              <mat-icon>edit</mat-icon>
+            </button>
+
+
+      </div>
+
+
+      </td>
+     </ng-container>
+
+   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+   <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+ </table>
+ </mat-card>
+
+
+
+
